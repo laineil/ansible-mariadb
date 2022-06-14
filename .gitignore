@@ -1,8 +1,8 @@
 # Ignore the .bak/ori files and _bak/ori dir. (backup by laineil)
 # Ignore the .DS_Store. (generate by Mac)
 
-.bak
-.DS_Store
-.ori
-_bak
-_ori
+*.bak
+*.DS_Store
+*.ori
+*_bak
+*_ori
