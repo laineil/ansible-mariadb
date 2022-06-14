@@ -6,9 +6,13 @@
 ## Prerequisites
 - ansible >= 2.9
 
-## Running the Playbook
+## Running the Playbook to deploy
 
     ansible-playbook site.yml  
+
+## Running the Playbook to cleanup deploy
+
+    ansible-playbook deploy-cleanup.yml
 
 ## Useful Optional Arguments
 - `-v through -vvvv`: Lets you increase the verbosity of the script output; -vvvv enables connection debugging.
