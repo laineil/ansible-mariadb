@@ -6,6 +6,9 @@
 ## Prerequisites
 - ansible >= 2.9
 
+## Vars define
+- define vars in vars.yml
+
 ## Running the Playbook to deploy
 
     ansible-playbook site.yml  
