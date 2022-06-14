@@ -1,0 +1,17 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- block:
+  ## block start
+
+  - name: "WARNING: If you are running this playbook without the --check parameter, it will remove and clean up mairadb on your systems."
+    pause:
+      seconds: 60
+      prompt: "Press 'ctl+c' and then 'A' to abort the process. The playbook will continue after 60 seconds"
+
+  ## block end
+  tags:
+    - mairadb_pause

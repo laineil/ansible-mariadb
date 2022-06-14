@@ -1,0 +1,26 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- block:
+  ## block start
+
+  - name: Install MairaDB packages
+    package:
+      name: "{{ mariadb_pkgs }}"
+      state: present
+    tags:
+      - mariadb_install_rpm
+
+  - name: Add MariaDB default my.cnf
+    template:
+      src: my.cnf.j2
+      dest: /etc/my.cnf
+    tags:
+      - mariadb_config_cnf
+
+  ## block end
+  tags:
+    - mariadb_install

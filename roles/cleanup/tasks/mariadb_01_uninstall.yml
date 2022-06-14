@@ -1,0 +1,26 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- block:
+  ## block start
+
+  - name: Stop MariaDB service
+    systemd:
+      name: "{{ mariadb_service }}"
+      state: stopped
+    tags:
+      - mariadb_service_stop
+
+  - name: Remove MairaDB packages
+    package:
+      name: "{{ rm_mariadb_pkgs }}"
+      state: absent
+    tags:
+      - mariadb_rm_rpm
+
+  ## block end
+  tags:
+    - mariadb_uninstall

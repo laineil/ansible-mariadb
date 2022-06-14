@@ -1,0 +1,20 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+# MariDB systemd service name
+mariadb_service : mariadb
+
+# MariDB yum packages need to install
+mariadb_pkgs: 
+  - MariaDB-server
+  - MariaDB-client
+  - MySQL-python
+
+# If Uninstall, need to remove MariaDB packages
+rm_mariadb_pkgs: 
+  - MariaDB-*
+
+# MariaDB sockect path
+mariadb_socket: /var/lib/mysql/mysql.sock

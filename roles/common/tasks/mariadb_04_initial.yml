@@ -1,0 +1,37 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- block:
+  ## block start
+
+  - name: Set MariaDB root password for the first time
+    no_log: true
+    mysql_user:
+      name: root
+      password: "{{ mariadb_root_pwd }}"
+      host: localhost
+      login_unix_socket: "{{ mariadb_socket }}"
+      state: present
+    notify: restart mariadb
+    tags: 
+      - mariadb_initial_root
+
+  - name: Remove anonymous users
+    no_log: true
+    mysql_user:
+      name: ''
+      host_all: true
+      login_user: root
+      login_password: "{{ mariadb_root_pwd }}"
+      login_unix_socket: "{{ mariadb_socket }}"
+      state: absent
+    notify: restart mariadb
+    tags: 
+      - mariadb_rm_anonymous
+
+  ## block end
+  tags:
+    - mariadb_initial

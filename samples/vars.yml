@@ -1,0 +1,17 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+# MariaDB repos path
+mariadb_repo_path: "[your_path]"
+
+# MariaDB version
+mariadb_version: "[now_just_support_10.8.3]"
+
+# Initial MariaDB root password
+mariadb_root_pwd: "[your_password]"
+
+# Set up MaraiDB admin user password
+mariadb_admin_pwd: "[your_password]"

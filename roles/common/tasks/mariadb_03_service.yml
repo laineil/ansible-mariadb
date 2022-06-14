@@ -1,0 +1,26 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- block:
+  ## block start
+
+  - name: Start MariaDB service
+    systemd:
+      name: "{{ mariadb_service }}"
+      state: started
+    tags:
+      - mariadb_service_start
+
+  - name: Enable MariaDB service
+    systemd:
+      name: "{{ mariadb_service }}"
+      enabled: True
+    tags:
+      - mariadb_service_enable
+
+  ## block end
+  tags:
+    - mariadb_service

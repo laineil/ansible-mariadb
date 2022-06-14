@@ -1,0 +1,24 @@
+---
+
+- block:
+  ## block start
+
+  - name: Create MaraiDB repos dir
+    file:
+      path: "{{ mariadb_repo_path }}/MariaDB_repos" 
+      state: directory
+      mode: '0755'
+ 
+  - name: Copy Internal MariaDB Repository packages to local
+    unarchive:
+      src: "../files/MariaDB_repos/{{ ansible_distribution }}{{ ansible_distribution_major_version }}/{{ mariadb_version }}.tgz"
+      dest: "{{ mariadb_repo_path }}/MariaDB_repos"
+
+  - name: Add Internal MariaDB Repository
+    template:
+      src: MariaDB.repo.j2
+      dest: /etc/yum.repos.d/MariaDB.repo
+ 
+  ## block end
+  tags:
+    - mariadb_repos

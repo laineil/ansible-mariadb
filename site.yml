@@ -1,0 +1,14 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- name: Install MariaDB Server on a single machine
+  hosts: mariadball
+  become: yes
+  become_user: root
+  roles:
+    - { role: common, tags: ["mairadb-common"] }
+  vars_files:
+    - vars.yml

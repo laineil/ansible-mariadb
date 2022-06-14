@@ -1,0 +1,12 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- name: Add the OS specific varibles
+  include_vars: "group_vars/{{ ansible_distribution }}{{ ansible_distribution_major_version }}.yml"
+
+- import_tasks: mariadb_00_pause.yml
+- import_tasks: mariadb_01_uninstall.yml
+- import_tasks: mariadb_02_cleanup.yml

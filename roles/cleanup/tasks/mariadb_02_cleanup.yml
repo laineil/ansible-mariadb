@@ -1,0 +1,27 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- block:
+  ## block start
+
+  - name: Cleanup MariaDB repos dir
+    file:
+      path: "{{ mariadb_repo_path }}/MariaDB_repos"
+      state: absent
+
+  - name: Cleanup MariaDB files
+    file:
+      path: "{{ item }}"
+      state: absent
+    loop:
+      - /etc/yum.repos.d/MariaDB.repo
+      - /etc/my.cnf
+      - /var/lib/mysql
+      - /var/log/mariadb
+
+  ## block end
+  tags:
+    - mariadb_cleanup 

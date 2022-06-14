@@ -1,0 +1,24 @@
+# BSD 3-Clause License
+# Copyright (c) 2022, Laineil
+# All rights reserved.
+
+---
+
+- block:
+  ## block start
+
+  - name: Create MariaDB admin user
+    no_log: true
+    mysql_user:
+      name: admin
+      password: "{{ mariadb_admin_pwd }}"
+      host: localhost
+      priv: '*.*:ALL,GRANT'
+      login_user: root
+      login_password: "{{ mariadb_root_pwd }}"
+      login_unix_socket: "{{ mariadb_socket }}"
+      state: present
+
+  ## block end
+  tags:
+    - mariadb_admin
